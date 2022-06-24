@@ -1,0 +1,21 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: inherit;
+  height: 6vh;
+  min-height: 55px;
+  background-color: var(--background-secondary);
+  z-index: 4;
+}
+
+.header h2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  color: white;
+  z-index: 5;
+}
