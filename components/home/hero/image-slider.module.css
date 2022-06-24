@@ -1,0 +1,116 @@
+.imageSliderContainer {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+
+  --img-slider-translate-percent: 0%;
+}
+
+.imageContainer {
+  display: block;
+  transform: translateY(var(--img-slider-translate-percent));
+
+  -webkit-transition: 0.45s ease-in-out;
+  -moz-transition: 0.45s ease-in-out;
+  -o-transition: 0.45s ease-in-out;
+  transition: 0.45s ease-in-out;
+}
+
+.sliderImg {
+  display: inline;
+}
+
+.imageSliderContainer img {
+  aspect-ratio: 16 / 9;
+}
+
+.btnContainer {
+  position: absolute;
+  inset: 0;
+}
+
+.btnContainer .sliderBtn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  font-size: 2.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0.15rem 0.4rem;
+  width: 2.2rem;
+  z-index: 3;
+
+  -webkit-transition: 0.05s ease-in-out;
+  -moz-transition: 0.05s ease-in-out;
+  -o-transition: 0.05s ease-in-out;
+  transition: 0.05s ease-in;
+}
+
+.btnContainer .sliderBtn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.btnContainer #btnLeft {
+  left: 1vw;
+}
+
+.btnContainer #btnRight {
+  right: 1vw;
+}
+
+/* Indicators Section */
+
+.indicatorsContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.indicatorsContainer .indicatorOuterCircle {
+  position: relative;
+  background-color: var(--text-disabled);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 1rem;
+  margin: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+
+.indicatorsContainer .indicatorOuterCircle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 0.75rem;
+  pointer-events: none;
+}
+
+.indicatorsContainer .indicatorOuterCircle:hover::after {
+  background-color: var(--text-primary);
+  opacity: 0.75;
+}
+
+.indicatorsContainer .indicatorOuterCircle[indactive="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background-color: var(--background-primary);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 0.75rem;
+  pointer-events: none;
+}

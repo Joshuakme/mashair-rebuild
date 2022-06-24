@@ -1,0 +1,36 @@
+.selfIntroContainer {
+  text-align: center;
+  height: 450px;
+}
+
+.selfIntroContainer h2 {
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.selfIntroContainer p {
+  width: 75ch;
+  margin: auto;
+  color: var(---text-secondary);
+  margin-bottom: 2rem;
+}
+
+.callToActionBtn {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.8em 1.3em;
+  border-radius: 5px;
+  background-color: var(--btn-cta-background);
+  cursor: pointer;
+  margin-top: 2rem;
+
+  -webkit-transition: 0.1s ease-in-out;
+  -moz-transition: 0.1s ease-in-out;
+  -o-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in;
+}
+
+.callToActionBtn:hover {
+  background-color: var(--btn-cta-background-hover);
+}
