@@ -42,6 +42,7 @@ function ImageSlider() {
     } else {
     }
   }
+
   function sliderAnimateRightHandler() {
     let translatePercent;
     const imgUnit = 100 / imageList.length;
@@ -151,6 +152,7 @@ function ImageSlider() {
               layout="responsive"
               priority="true"
               className={classes.sliderImg}
+              id={`img-${index}`}
               key={index}
             />
           ) : (

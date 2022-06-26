@@ -84,6 +84,11 @@
   width: 1rem;
   margin: 0.2rem 0.5rem;
   cursor: pointer;
+
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in;
 }
 
 .indicatorsContainer .indicatorOuterCircle::after {
@@ -96,11 +101,26 @@
   aspect-ratio: 1 / 1;
   width: 0.75rem;
   pointer-events: none;
+
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in;
 }
 
 .indicatorsContainer .indicatorOuterCircle:hover::after {
   background-color: var(--text-primary);
   opacity: 0.75;
+}
+
+.indicatorsContainer .indicatorOuterCircle[indactive="true"] {
+  position: relative;
+  background-color: var(--text-disabled);
+  border-radius: 30%;
+  aspect-ratio: 2 / 1;
+  width: 1.75rem;
+  margin: 0.2rem 0.5rem;
+  cursor: pointer;
 }
 
 .indicatorsContainer .indicatorOuterCircle[indactive="true"]::after {
@@ -109,8 +129,8 @@
   inset: 0;
   margin: auto;
   background-color: var(--background-primary);
-  border-radius: 50%;
-  aspect-ratio: 1 / 1;
-  width: 0.75rem;
+  border-radius: 30%;
+  aspect-ratio: 2 / 1;
+  width: 1.55rem;
   pointer-events: none;
 }
