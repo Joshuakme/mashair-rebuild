@@ -12,7 +12,7 @@
 .selfIntroContainer p {
   width: 75ch;
   margin: auto;
-  color: var(---text-secondary);
+  color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 

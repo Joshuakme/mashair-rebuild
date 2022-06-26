@@ -7,7 +7,9 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      <Head></Head>
+      <Head>
+        <title>Mashair Beauty</title>
+      </Head>
       <Component {...pageProps} />
     </Layout>
   );

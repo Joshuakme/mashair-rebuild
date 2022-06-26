@@ -21,6 +21,18 @@ ol {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+button,
+input {
   color: var(--text-primary);
 }
 
@@ -30,11 +42,16 @@ ol {
 }
 
 :root {
+  --header-height: 6vh;
   --background-primary: rgba(21, 21, 21);
   --background-secondary: rgba(33, 33, 33);
   --background-secondary-a: rgba(33, 33, 33, 0.98);
+  --form-background-primary: #3b3d3db2;
+  --border: hsl(0, 0%, 18.82%);
+  --border-focus: #f6a184;
   --btn-cta-background: #ff0000;
   --btn-cta-background-hover: #d80000;
+  --btn-login-facebook: #4267b2;
   --text-primary: #fff;
   --text-secondary: #aaa;
   --text-disabled: #717171;

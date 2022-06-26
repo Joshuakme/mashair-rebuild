@@ -28,11 +28,6 @@ function Nav(props) {
         icon: <FontAwesomeIcon icon={faSignIn} />,
         href: "/login",
       },
-      {
-        title: "註冊",
-        icon: <FontAwesomeIcon icon={faUser} />,
-        href: "/signup",
-      },
     ],
     customer: [
       {
