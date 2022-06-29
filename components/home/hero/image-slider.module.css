@@ -116,7 +116,7 @@
 .indicatorsContainer .indicatorOuterCircle[indactive="true"] {
   position: relative;
   background-color: var(--text-disabled);
-  border-radius: 30%;
+  border-radius: 10rem;
   aspect-ratio: 2 / 1;
   width: 1.75rem;
   margin: 0.2rem 0.5rem;
@@ -129,8 +129,8 @@
   inset: 0;
   margin: auto;
   background-color: var(--background-primary);
-  border-radius: 30%;
+  border-radius: 10rem;
   aspect-ratio: 2 / 1;
-  width: 1.55rem;
+  width: 1.5rem;
   pointer-events: none;
 }
