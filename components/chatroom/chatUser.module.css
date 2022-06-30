@@ -20,7 +20,7 @@
   pointer-events: none;
 }
 
-.chatUserContainer[isActive="true"]::before {
+.chatUserContainer[active="true"]::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -28,14 +28,15 @@
   pointer-events: none;
 }
 
-.chatUserContainer[isActive="true"]::after {
+.chatUserContainer[active="true"]::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 99%;
   right: 0;
+  width: 3px;
   background-color: var(--btn-cta-background-hover);
+  pointer-events: none;
 }
 
 .imgContainer {
@@ -51,6 +52,7 @@
   overflow: hidden;
   cursor: pointer;
   isolation: isolate;
+  pointer-events: none;
 }
 
 .summaryContainer {
@@ -58,6 +60,7 @@
   margin-left: 0.8rem;
   min-width: 20vw;
   isolation: isolate;
+  pointer-events: none;
 }
 
 .summaryContainer h2 {

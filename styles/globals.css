@@ -43,6 +43,7 @@ input {
 
 :root {
   --header-height: 6vh;
+  --user-list-container-width: auto;
   --background-primary: rgba(21, 21, 21);
   --background-secondary: rgba(33, 33, 33);
   --background-secondary-a: rgba(33, 33, 33, 0.98);

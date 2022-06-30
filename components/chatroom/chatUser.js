@@ -8,6 +8,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import classes from "./chatUser.module.css";
 
 function ChatUser(props) {
+  const { activeChatHandler } = props;
   const { messages, thumbnail_img, title, id } = props.chat;
   let imgPath;
 
@@ -27,7 +28,11 @@ function ChatUser(props) {
   }
 
   return (
-    <div className={classes.chatUserContainer}>
+    <div
+      className={classes.chatUserContainer}
+      onClick={activeChatHandler}
+      id={id}
+    >
       <div className={classes.imgContainer}>
         <Image src={imgPath} width={100} height={100} />
       </div>

@@ -4,8 +4,8 @@ import ChatUser from "./chatUser";
 // Import Styles
 import classes from "./userList.module.css";
 
-function UserList({ chatHistory }) {
-  const [activeChat, setActiveChat] = useState(null);
+function UserList(props) {
+  const { activeChat, setActiveChat } = props;
 
   const object = {
     chatId0: {
@@ -89,7 +89,7 @@ function UserList({ chatHistory }) {
       title: "Test User Default Icon",
     },
     chatId3: {
-      id: "chatId0",
+      id: "chatId3",
       messages: [
         {
           id: 0,
@@ -111,7 +111,7 @@ function UserList({ chatHistory }) {
       title: "Mashair Beauty",
     },
     chatId4: {
-      id: "chatId1",
+      id: "chatId4",
       messages: [
         {
           id: 0,
@@ -140,7 +140,7 @@ function UserList({ chatHistory }) {
       title: "Mashair Developer Team",
     },
     chatId5: {
-      id: "chatId2",
+      id: "chatId5",
       messages: [
         {
           id: 0,
@@ -169,7 +169,7 @@ function UserList({ chatHistory }) {
       title: "Test User Default Icon",
     },
     chatId6: {
-      id: "chatId0",
+      id: "chatId6",
       messages: [
         {
           id: 0,
@@ -191,7 +191,7 @@ function UserList({ chatHistory }) {
       title: "Mashair Beauty",
     },
     chatId7: {
-      id: "chatId1",
+      id: "chatId7",
       messages: [
         {
           id: 0,
@@ -220,7 +220,7 @@ function UserList({ chatHistory }) {
       title: "Mashair Developer Team",
     },
     chatId8: {
-      id: "chatId2",
+      id: "chatId8",
       messages: [
         {
           id: 0,
@@ -249,7 +249,7 @@ function UserList({ chatHistory }) {
       title: "Test User Default Icon",
     },
     chatId9: {
-      id: "chatId2",
+      id: "chatId9",
       messages: [
         {
           id: 0,
@@ -278,7 +278,7 @@ function UserList({ chatHistory }) {
       title: "Test User Default Icon",
     },
     chatId10: {
-      id: "chatId0",
+      id: "chatId10",
       messages: [
         {
           id: 0,
@@ -300,7 +300,7 @@ function UserList({ chatHistory }) {
       title: "Mashair Beauty",
     },
     chatId11: {
-      id: "chatId1",
+      id: "chatId11",
       messages: [
         {
           id: 0,
@@ -329,7 +329,7 @@ function UserList({ chatHistory }) {
       title: "Mashair Developer Team",
     },
     chatId12: {
-      id: "chatId2",
+      id: "chatId12",
       messages: [
         {
           id: 0,
@@ -361,9 +361,32 @@ function UserList({ chatHistory }) {
 
   const list = Object.keys(object).map((key) => object[key]);
 
+  function activeChatHandler(e) {
+    const { id, parentElement } = e.target;
+    const chatIndex = parseInt(id.toString().slice(6));
+
+    e.target.setAttribute("active", "true");
+
+    for (let i = 0; i < parentElement.children.length; i++) {
+      if (i !== chatIndex) {
+        parentElement.children[i].setAttribute("active", "false");
+      }
+    }
+
+    setActiveChat(chatIndex);
+  }
+
   return (
-    <section className={classes.chatUserContainer}>
-      {list && list.map((chat) => <ChatUser chat={chat} key={chat.id} />)}
+    <section className={classes.chatUserContainer} id="userListContainer">
+      {list &&
+        list.map((chat, index) => (
+          <ChatUser
+            chat={chat}
+            key={chat.id}
+            chatIndex={index}
+            activeChatHandler={activeChatHandler}
+          />
+        ))}
     </section>
   );
 }

@@ -12,6 +12,7 @@ import classes from "../../styles/chatroom.module.css";
 
 function Chatroom(props) {
   const [chatHistory, setChatHistory] = useState();
+  const [activeChat, setActiveChat] = useState();
 
   // Functions
   async function fetchChatHistory() {
@@ -29,7 +30,7 @@ function Chatroom(props) {
       [userId]: {
         chatrooms: {
           [chatId]: {
-            username: "Joshua Koh",
+            username: "Joshua Koh",~
             content: "Hello Next.js!",
             img: "imgURL",
             sentDate: "",
@@ -46,8 +47,16 @@ function Chatroom(props) {
 
   return (
     <main className={classes.chatroomContainer}>
-      <UserList chatHistory={chatHistory} />
-      <MessageBox chatHistory={chatHistory} />
+      <UserList
+        chatHistory={chatHistory}
+        activeChat={activeChat}
+        setActiveChat={setActiveChat}
+      />
+      <MessageBox
+        chatHistory={chatHistory}
+        activeChat={activeChat}
+        setActiveChat={setActiveChat}
+      />
     </main>
   );
 }

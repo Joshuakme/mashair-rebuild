@@ -1,0 +1,32 @@
+.messageBoxContainer {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - var(--user-list-container-width));
+  background-color: var(--background-primary);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 4rem;
+  background-color: var(--form-background-primary);
+  border-left: 2px solid var(--background-primary);
+}
+
+.header .imgContainer {
+  margin: 0 2rem;
+  aspect-ratio: 1 / 1;
+  width: 3rem;
+  background-color: var(--text-secondary);
+  border: 1px solid var(--background-primary);
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.header .userStatus {
+}
