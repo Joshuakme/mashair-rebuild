@@ -1,9 +1,17 @@
 // Import Next & React Components
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+// Import Third Party Packages
+import { signIn } from "next-auth/react";
 // Import Fontawesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faKey,
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faTwitter,
@@ -13,33 +21,119 @@ import {
 import classes from "./loginForm.module.css";
 
 function LoginForm() {
+  const router = useRouter();
+
   const [isLogin, setIsLogin] = useState(false);
   const [isFormSignUp, setIsFormSignUp] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   // States
   const [loginCred, setLoginCred] = useState({
     email: "",
     password: "",
-    remember: false,
+    isRemember: false,
   });
 
   //   Functions
   function inputHandler(e) {
-    const { name, value } = e.target;
+    const { name, value, id } = e.target;
+
+    if (id === "remember") {
+      const { checked } = e.target;
+      console.log(checked);
+      setLoginCred({ ...loginCred, [name]: checked });
+    }
 
     setLoginCred({ ...loginCred, [name]: value });
   }
 
-  function formCHangeHandler() {
+  function showPasswordHandler() {
+    const password = document.getElementById("password");
+
+    setShowPassword((prevState) => {
+      if (!prevState) {
+        password.type = "text";
+      } else {
+        password.type = "password";
+      }
+
+      return !prevState;
+    });
+  }
+
+  function formChangeHandler() {
     setIsFormSignUp((prevState) => !prevState);
   }
 
+  function validateFormData(formData) {
+    const { email, password, isRemember } = formData;
+
+    if (isFormSignUp) {
+      if (
+        !email ||
+        !email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+      ) {
+        // alert("Invalid Email Address");
+        alert("郵件地址格式無效");
+        return false;
+      } else if (!password || password.trim() === "") {
+        // alert("Invalid Password");
+        alert("密碼輸入無效");
+        return false;
+      } else if (password.trim().length < 8 || password.trim().length > 16) {
+        // "Password must be eight characters or more and cannot contain spaces"
+        alert("密碼長度應為八個字符或更多並不能包括空格");
+        return false;
+      }
+
+      return true;
+    }
+  }
+
+  async function loginFormSubmitHandler(e) {
+    e.preventDefault();
+
+    if (isFormSignUp) {
+      if (!validateFormData(loginCred)) return;
+
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        body: JSON.stringify(loginCred),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+      alert(data.message);
+    } else {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: loginCred.email,
+        password: loginCred.password,
+      });
+
+      if (!result.ok) {
+        alert(result.error);
+      } else {
+        alert("Logged In Successfully");
+        router.push("/");
+      }
+    }
+
+    // setLoginCred({
+    //   email: "",
+    //   password: "",
+    //   isRemember: false,
+    // });
+  }
+
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={loginFormSubmitHandler}>
       <div className={classes.loginHeader}>
         <h2>{isFormSignUp ? "註冊" : "登錄"}</h2>
         <p>
           Or&nbsp;
-          <span className={classes.signup} onClick={formCHangeHandler}>
+          <span className={classes.signup} onClick={formChangeHandler}>
             {isFormSignUp ? "Log in" : "Sign up a new account"}
           </span>
         </p>
@@ -64,7 +158,7 @@ function LoginForm() {
       </div>
 
       <div className={classes.formElementContainer}>
-        <label htmlFor="email-address">Password</label>
+        <label htmlFor="password">Password</label>
         <div className={classes.inputContainer}>
           <FontAwesomeIcon icon={faKey} className={classes.inputIcon} />
           <input
@@ -77,6 +171,12 @@ function LoginForm() {
             placeholder="Password"
             required
             onChange={inputHandler}
+            onPaste={(e) => e.preventDefault()}
+          />
+          <FontAwesomeIcon
+            icon={showPassword ? faEyeSlash : faEye}
+            onClick={showPasswordHandler}
+            className={classes.passwordEye}
           />
         </div>
       </div>
@@ -86,8 +186,8 @@ function LoginForm() {
           <input
             id="remember"
             type="checkbox"
-            name="remember"
-            value={loginCred.remember}
+            name="isRemember"
+            value={loginCred.isRemember}
             onChange={inputHandler}
           />
           <label htmlFor="remember">Remember me</label>
@@ -95,7 +195,7 @@ function LoginForm() {
         {isFormSignUp ? (
           <></>
         ) : (
-          <Link href="#">
+          <Link href="/">
             <a>
               <span className={classes.forgotPassword}>
                 Forgot your password?
@@ -117,13 +217,21 @@ function LoginForm() {
 
       <div className={classes.otherLoginContainer}>
         <div className={classes.buttonContainer}>
-          <FontAwesomeIcon icon={faFacebook} className={classes.faIcons} />
+          <FontAwesomeIcon
+            icon={faFacebook}
+            className={classes.faIcons}
+            onClick={() => signIn("facebook")}
+          />
         </div>
         <div className={classes.buttonContainer}>
           <FontAwesomeIcon icon={faTwitter} className={classes.faIcons} />
         </div>
         <div className={classes.buttonContainer}>
-          <FontAwesomeIcon icon={faGithub} className={classes.faIcons} />
+          <FontAwesomeIcon
+            icon={faGithub}
+            className={classes.faIcons}
+            onClick={() => signIn("github")}
+          />
         </div>
       </div>
     </form>

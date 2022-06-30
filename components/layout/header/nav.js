@@ -1,6 +1,7 @@
 // Import Next Componenets
 import Link from "next/link";
 // Import Third Party Packages
+import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -11,11 +12,16 @@ import {
   faCalendarDay,
   faCommentAlt,
 } from "@fortawesome/free-solid-svg-icons";
+
 // Import Styles
 import classes from "./nav.module.css";
 
 function Nav(props) {
-  const { isLogin, userType, isActive, setIsActive } = props;
+  // Sessions
+  const { data: session, status } = useSession();
+
+  const { isActive, setIsActive } = props;
+  // const [userType, setUserType] = useState("guest");
   const allNavList = {
     guest: [
       {
@@ -86,8 +92,9 @@ function Nav(props) {
   };
   let navList;
 
-  if (isLogin) {
-    if (userType === "customer") {
+  // Logged In
+  if (session && status === "authenticated") {
+    if (session.role === "customer") {
       navList = allNavList.customer;
     } else {
       navList = allNavList.seller;

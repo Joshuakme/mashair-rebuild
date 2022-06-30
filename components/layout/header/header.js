@@ -1,6 +1,8 @@
 // Import Next & React Components
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+// Import Third Party Packages
+import { useSession } from "next-auth/react";
 // Import Components
 import Hamburger from "./hamburger";
 import Nav from "./nav";
@@ -9,9 +11,8 @@ import BackDrop from "../../ui/backdrop/backdrop";
 import classes from "./header.module.css";
 
 function Header() {
+  // States
   const [isActive, setIsActive] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  const [userType, setUserType] = useState("customer");
 
   return (
     <header className={classes.header}>
@@ -19,12 +20,7 @@ function Header() {
       <h2>
         <Link href="/">Mashair Beauty</Link>
       </h2>
-      <Nav
-        isLogin={isLogin}
-        userType={userType}
-        isActive={isActive}
-        setIsActive={setIsActive}
-      />
+      <Nav isActive={isActive} setIsActive={setIsActive} />
       {isActive && <BackDrop />}
     </header>
   );
