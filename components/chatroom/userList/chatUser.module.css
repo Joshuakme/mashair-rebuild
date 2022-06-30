@@ -45,7 +45,7 @@
   align-items: center;
   margin: auto;
   aspect-ratio: 1 / 1;
-  width: 3.5rem;
+  width: 3rem;
   background-color: var(--text-secondary);
   border: 1px solid var(--background-primary);
   border-radius: 100%;
@@ -64,10 +64,10 @@
 }
 
 .summaryContainer h2 {
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .summaryContainer p {
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }

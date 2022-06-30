@@ -1,0 +1,24 @@
+.messageGroup {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* .messageGroup:first-child::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  display: block;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-left-color: var(--form-background-primary);
+  transform: rotate(-45deg);
+} */
+
+.messageGroup[message-in="true"] {
+  align-items: flex-end;
+}

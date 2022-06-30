@@ -2,17 +2,19 @@
   display: flex;
   flex-direction: column;
   width: calc(100vw - var(--user-list-container-width));
+  height: calc(100vh - var(--header-height));
   background-color: var(--background-primary);
 }
 
 .header {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: 4rem;
+  height: var(--chatroom-msgbox-header-height);
   background-color: var(--form-background-primary);
-  border-left: 2px solid var(--background-primary);
+  border-left: 1px solid var(--background-primary);
 }
 
 .header .imgContainer {
@@ -28,5 +30,15 @@
   pointer-events: none;
 }
 
-.header .userStatus {
+.header .userStatus h2 {
+  font-size: 1rem;
+}
+
+.header .userStatus span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.contentContainer {
+  flex: 1;
 }

@@ -43,7 +43,9 @@ input {
 
 :root {
   --header-height: 6vh;
-  --user-list-container-width: auto;
+  --chatroom-user-list-container-width: auto;
+  --chatroom-msgbox-header-height: 3.5rem;
+  --chatroom-msgbox-input-container-height: auto;
   --background-primary: rgba(21, 21, 21);
   --background-secondary: rgba(33, 33, 33);
   --background-secondary-a: rgba(33, 33, 33, 0.98);
@@ -56,4 +58,5 @@ input {
   --text-primary: #fff;
   --text-secondary: #aaa;
   --text-disabled: #717171;
+  --chat-card-backgroud-self: #cc0000;
 }

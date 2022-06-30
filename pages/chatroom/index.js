@@ -1,9 +1,11 @@
+// Import Next & React Components
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 // Import Components
-import UserList from "../../components/chatroom/userlist";
-import MessageBox from "../../components/chatroom/messagebox";
-// Import Helper Functions
-
+import UserList from "../../components/chatroom/userList/userlist";
+import MessageBox from "../../components/chatroom/messageBox/messageBox";
+// Import Third Party Packages
+import { useSession } from "next-auth/react";
 // Import Server Side Functinos
 import fs from "fs";
 import path from "path";
@@ -11,18 +13,25 @@ import path from "path";
 import classes from "../../styles/chatroom.module.css";
 
 function Chatroom(props) {
+  const { data: session, status } = useState();
+  const router = useRouter();
   const [chatHistory, setChatHistory] = useState();
   const [activeChat, setActiveChat] = useState();
+  const { chats } = props;
+
+  // if (!session || status === "unauthenticated") {
+  //   router.push("/login");
+  // }
+
+  console.log(session);
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
 
   // Functions
   async function fetchChatHistory() {
-    // console.log("Fetching Chat History...");
-
-    const { chats } = props;
-
-    // console.log(chats);
-
-    setChatHistory(chats);
+    console.log(chats);
 
     // const data = await fetch("/api/chatroom/");
     {
@@ -43,7 +52,7 @@ function Chatroom(props) {
 
   useEffect(() => {
     fetchChatHistory();
-  }, [chatHistory]);
+  }, [props.chats]);
 
   return (
     <main className={classes.chatroomContainer}>

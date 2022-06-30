@@ -1,0 +1,65 @@
+.msgCardContainer {
+  position: relative;
+  width: fit-content;
+  min-width: 10rem;
+  max-width: 65%;
+  color: var(--text-primary);
+  margin: 0.1rem 0;
+  padding: 0.4rem 0.6rem;
+  background-color: var(--form-background-primary);
+  border-radius: 0 5px 5px 5px;
+}
+
+.msgCardContainer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  display: block;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-left-color: var(--form-background-primary);
+  transform: rotate(-45deg);
+}
+
+.msgCardContainer[data-self="true"] {
+  border-radius: 5px 0 5px 5px;
+  align-self: flex-end;
+  background-color: var(--chat-card-backgroud-self);
+}
+
+.msgCardContainer[data-self="true"]::before {
+  display: none;
+}
+
+.msgCardContainer[data-self="true"]::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-right-color: var(--chat-card-backgroud-self);
+  transform: rotate(45deg);
+}
+
+.msgCardContainer .cardHeader h2 {
+  color: orange;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.msgCardContainer .cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.msgCardContainer .cardContent span {
+  align-self: flex-end;
+  color: var(--text-secondary);
+}
