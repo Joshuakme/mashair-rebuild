@@ -1,0 +1,53 @@
+{
+  "chatId0": {
+    "id": "chatId0",
+    "messages": [
+      {
+        "id": 0,
+        "username": "Joshua Koh",
+        "content": "Hello Next.js!",
+        "img": "imgURL",
+        "sentDate": "30-06-2022"
+      },
+      {
+        "id": 1,
+        "username": "Mashair Beauty",
+        "content": "Hi Joshua! Welcome to my website.",
+        "img": "imgURL",
+        "sentDate": "30-06-2022"
+      }
+    ],
+    "type": "private",
+    "thumbnail_img": "/favicon/mstile-310x310.png",
+    "title": "Mashair Beauty"
+  },
+  "chatId1": {
+    "id": "chatId1",
+    "messages": [
+      {
+        "id": 0,
+        "username": "Joshua Koh",
+        "content": "Hello Next.js!",
+        "img": "imgURL",
+        "sentDate": "30-06-2022"
+      },
+      {
+        "id": 1,
+        "username": "Mashair Beauty",
+        "content": "Hi Joshua! Welcome to my website.",
+        "img": "imgURL",
+        "sentDate": "30-06-2022"
+      },
+      {
+        "id": 2,
+        "username": "John Wick",
+        "content": "Hi Everyone! I'm John Wick.",
+        "img": "imgURL",
+        "sentDate": "30-06-2022"
+      }
+    ],
+    "type": "group",
+    "thumbnail_img": "/images/chatroom/group-thumbnail.png",
+    "title": "Mashair Developer Team"
+  }
+}
