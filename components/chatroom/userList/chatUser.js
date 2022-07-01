@@ -20,7 +20,7 @@ function ChatUser(props) {
 
   const lastMsg = messages[messages.length - 1].content;
 
-  const ModlastMsg = truncate(lastMsg, 35);
+  const ModlastMsg = truncate(lastMsg, 55);
 
   // Functions
   function truncate(source, size) {
