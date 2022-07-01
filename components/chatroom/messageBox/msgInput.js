@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 // Improt Third Party Packages
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +10,30 @@ import {
 import classes from "./msginput.module.css";
 
 function MsgInput() {
+  const inputMsgTxta = useRef();
+
+  if (!window) {
+    return;
+  }
+
+  function checkTextWidth(e) {
+    let content = null;
+    let txtaHeightNum = 0;
+
+    content = e.target.value;
+
+    e.target.rols = "auto";
+    e.target.style.height = e.target.scrollHeight + "px";
+
+    txtaHeightNum = e.target.style.height.replace("px", "");
+
+    if (txtaHeightNum > 120) {
+      e.target.style.overflowY = "scroll";
+    } else {
+      e.target.style.overflowY = "hidden";
+    }
+  }
+
   return (
     <form className={classes.inputContainer}>
       <span className={classes.emojiContent}></span>
@@ -27,11 +51,22 @@ function MsgInput() {
             </div>
           </div>
 
-          <div className={classes.divRightContainer}>
+          <div className={classes.divMiddleContainer}>
             <div className={classes.inputTextContainer}>
-              <input type="text" name="message" placeholder="Type a message" />
+              <textarea
+                type="text"
+                ref={inputMsgTxta}
+                id="inputMsg"
+                name="message"
+                cols={1}
+                rows={1}
+                placeholder="Type a message"
+                onChange={checkTextWidth}
+              ></textarea>
             </div>
-
+          </div>
+          <div className={classes.divRightContainer}>
+            {" "}
             <div className={classes.iconContainer}>
               <FontAwesomeIcon icon={faPaperPlane} />
             </div>
