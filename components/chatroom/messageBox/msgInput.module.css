@@ -36,7 +36,7 @@
   overflow: hidden;
 }
 
-.divContainer .divMiddleContainer .inputTextContainer textarea {
+.divContainer .divMiddleContainer .inputTextContainer .inputMsg {
   width: 100%;
   min-height: 1.25rem; /* 20px  */
   max-height: 7.5rem; /* 100px  */
@@ -55,8 +55,21 @@
   overflow: hidden;
 }
 
-.divContainer .divMiddleContainer .inputTextContainer textarea::placeholder {
+.divContainer .divMiddleContainer .inputTextContainer .inputMsg::placeholder {
   padding-left: 1ch;
+}
+
+.divContainer .divMiddleContainer .inputTextContainer .hiddenDiv {
+  display: none;
+  width: 100%;
+  min-height: 1.25rem; /* 20px  */
+  max-height: 7.5rem; /* 100px  */
+  user-select: text;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 1rem;
+  line-height: 1.25;
+  overflow: hidden;
 }
 
 .divContainer .iconContainer {

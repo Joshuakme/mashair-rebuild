@@ -16,18 +16,34 @@ function MsgInput() {
     return;
   }
 
+  const hiddenDiv = document.createElement("div");
+
   function checkTextWidth(e) {
     let content = null;
     let txtaHeightNum = 0;
 
     content = e.target.value;
 
+    hiddenDiv.className = classes.inputMsg;
+
+    e.target.parentNode.appendChild(hiddenDiv);
+
+    hiddenDiv.innerHTML = content + '<br style="line-height: 3px;">';
+
+    hiddenDiv.style.visibility = "hidden";
+    hiddenDiv.style.display = "block";
     e.target.rols = "auto";
-    e.target.style.height = e.target.scrollHeight + "px";
+    e.target.style.height = hiddenDiv.offsetHeight + "px";
 
-    txtaHeightNum = e.target.style.height.replace("px", "");
+    // Make the hidden div display:none again
+    hiddenDiv.style.visibility = "visible";
+    hiddenDiv.style.display = "none";
 
-    if (txtaHeightNum > 120) {
+    // e.target.style.height = e.target.scrollHeight + "px";
+
+    txtaHeightNum = parseInt(e.target.style.height.replace("px", ""));
+
+    if (txtaHeightNum === 120) {
       e.target.style.overflowY = "scroll";
     } else {
       e.target.style.overflowY = "hidden";
@@ -56,7 +72,7 @@ function MsgInput() {
               <textarea
                 type="text"
                 ref={inputMsgTxta}
-                id="inputMsg"
+                className={classes.inputMsg}
                 name="message"
                 cols={1}
                 rows={1}
