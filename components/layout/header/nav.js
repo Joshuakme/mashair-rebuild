@@ -17,10 +17,11 @@ import {
 import classes from "./nav.module.css";
 
 function Nav(props) {
+  const { isActive, setIsActive } = props;
+
   // Sessions
   const { data: session, status } = useSession();
 
-  const { isActive, setIsActive } = props;
   // const [userType, setUserType] = useState("guest");
   const allNavList = {
     guest: [
