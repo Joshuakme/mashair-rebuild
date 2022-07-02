@@ -1,0 +1,35 @@
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  padding: 2rem;
+  background-color: var(--form-background-primary);
+}
+
+.formHeader {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.formHeader h2 {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.formHeader h2 span {
+  color: #f9a825;
+}
+
+.formInputContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.formInputContainer input {
+  width: 100%;
+  padding: 9px;
+}

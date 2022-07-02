@@ -1,0 +1,8 @@
+.bookingContainer {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - var(--header-height));
+  max-height: calc(100vh - var(--header-height));
+  width: 100%;
+  margin: auto;
+}

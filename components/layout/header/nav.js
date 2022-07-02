@@ -94,7 +94,7 @@ function Nav(props) {
 
   // Logged In
   if (session && status === "authenticated") {
-    if (session.role === "customer") {
+    if (session.user.role === "customer") {
       navList = allNavList.customer;
     } else {
       navList = allNavList.seller;

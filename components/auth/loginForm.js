@@ -39,7 +39,6 @@ function LoginForm() {
 
     if (id === "remember") {
       const { checked } = e.target;
-      console.log(checked);
       setLoginCred({ ...loginCred, [name]: checked });
     }
 
