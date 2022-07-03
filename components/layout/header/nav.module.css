@@ -54,9 +54,11 @@
 }
 
 .nav .navIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  margin-right: 1.5rem;
   color: white;
 }
 

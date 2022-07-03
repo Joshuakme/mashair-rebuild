@@ -9,6 +9,12 @@
   z-index: 4;
 }
 
+/* Hamburger */
+.header > div {
+  margin-left: 1.5rem;
+  z-index: 100;
+}
+
 .header h2 {
   position: absolute;
   left: 0;
