@@ -2,17 +2,14 @@
 import Link from "next/link";
 // Import Third Party Packages
 import { useSession } from "next-auth/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faSignIn,
-  faSignOut,
-  faUser,
-  faSync,
-  faCalendarDay,
-  faCommentAlt,
-} from "@fortawesome/free-solid-svg-icons";
-
+// Import MUI Icons
+import HomeIcon from "@mui/icons-material/Home";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
+import PersonIcon from "@mui/icons-material/Person";
+import SyncIcon from "@mui/icons-material/Sync";
+import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
+import MessageIcon from "@mui/icons-material/Message";
 // Import Styles
 import classes from "./nav.module.css";
 
@@ -27,66 +24,66 @@ function Nav(props) {
     guest: [
       {
         title: "主頁",
-        icon: <FontAwesomeIcon icon={faHome} />,
+        icon: <HomeIcon className={classes.muiIcons} />,
         href: "/",
       },
       {
         title: "登入",
-        icon: <FontAwesomeIcon icon={faSignIn} />,
+        icon: <LoginIcon className={classes.muiIcons} />,
         href: "/login",
       },
     ],
     customer: [
       {
         title: "主頁",
-        icon: <FontAwesomeIcon icon={faHome} />,
+        icon: <HomeIcon className={classes.muiIcons} />,
         href: "/",
       },
       {
         title: "用戶資料",
-        icon: <FontAwesomeIcon icon={faUser} />,
+        icon: <PersonIcon className={classes.muiIcons} />,
         href: "/user",
       },
       {
         title: "預約",
-        icon: <FontAwesomeIcon icon={faCalendarDay} />,
+        icon: <InsertInvitationIcon className={classes.muiIcons} />,
         href: "/booking",
       },
       {
         title: "聊天室",
-        icon: <FontAwesomeIcon icon={faCommentAlt} />,
+        icon: <MessageIcon className={classes.muiIcons} />,
         href: "/chatroom",
       },
       {
         title: "登出",
-        icon: <FontAwesomeIcon icon={faSignOut} />,
+        icon: <LogoutIcon className={classes.muiIcons} />,
         href: "/signout",
       },
     ],
     seller: [
       {
         title: "主頁",
-        icon: <FontAwesomeIcon icon={faHome} />,
+        icon: <HomeIcon className={classes.muiIcons} />,
         href: "/",
       },
       {
         title: "用戶資料",
-        icon: <FontAwesomeIcon icon={faUser} />,
+        icon: <PersonIcon className={classes.muiIcons} />,
         href: "/user",
       },
       {
         title: "配對",
-        icon: <FontAwesomeIcon icon={faSync} />,
+        icon: <SyncIcon className={classes.muiIcons} />,
         href: "/pairing",
       },
       {
         title: "聊天室",
-        icon: <FontAwesomeIcon icon={faCommentAlt} />,
+        icon: <MessageIcon className={classes.muiIcons} />,
         href: "/chatroom",
       },
       {
         title: "登出",
-        icon: <FontAwesomeIcon icon={faSignOut} />,
+        icon: <LogoutIcon className={classes.muiIcons} />,
         href: "/signout",
       },
     ],

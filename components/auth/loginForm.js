@@ -4,19 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 // Import Third Party Packages
 import { signIn } from "next-auth/react";
-// Import Fontawesome Icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faKey,
-  faEye,
-  faEyeSlash,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebook,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
+// Import MUI Icons
+import EmailIcon from "@mui/icons-material/Email";
+import KeyIcon from "@mui/icons-material/Key";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import GitHubIcon from "@mui/icons-material/GitHub";
 // Import Styles
 import classes from "./loginForm.module.css";
 
@@ -141,7 +136,7 @@ function LoginForm() {
       <div className={classes.formElementContainer}>
         <label htmlFor="email-address">Email address</label>
         <div className={classes.inputContainer}>
-          <FontAwesomeIcon icon={faEnvelope} className={classes.inputIcon} />
+          <EmailIcon className={classes.inputIcon} />
           <input
             id="email-address"
             type="email"
@@ -159,7 +154,7 @@ function LoginForm() {
       <div className={classes.formElementContainer}>
         <label htmlFor="password">Password</label>
         <div className={classes.inputContainer}>
-          <FontAwesomeIcon icon={faKey} className={classes.inputIcon} />
+          <KeyIcon className={classes.inputIcon} />
           <input
             id="password"
             type="password"
@@ -172,11 +167,17 @@ function LoginForm() {
             onChange={inputHandler}
             onPaste={(e) => e.preventDefault()}
           />
-          <FontAwesomeIcon
-            icon={showPassword ? faEyeSlash : faEye}
-            onClick={showPasswordHandler}
-            className={classes.passwordEye}
-          />
+          {showPassword ? (
+            <VisibilityOffIcon
+              className={classes.passwordEye}
+              onClick={showPasswordHandler}
+            />
+          ) : (
+            <VisibilityIcon
+              className={classes.passwordEye}
+              onClick={showPasswordHandler}
+            />
+          )}
         </div>
       </div>
 
@@ -216,19 +217,17 @@ function LoginForm() {
 
       <div className={classes.otherLoginContainer}>
         <div className={classes.buttonContainer}>
-          <FontAwesomeIcon
-            icon={faFacebook}
-            className={classes.faIcons}
+          <FacebookIcon
+            className={classes.muiIcons}
             onClick={() => signIn("facebook")}
           />
         </div>
         <div className={classes.buttonContainer}>
-          <FontAwesomeIcon icon={faTwitter} className={classes.faIcons} />
+          <TwitterIcon className={classes.muiIcons} />
         </div>
         <div className={classes.buttonContainer}>
-          <FontAwesomeIcon
-            icon={faGithub}
-            className={classes.faIcons}
+          <GitHubIcon
+            className={classes.muiIcons}
             onClick={() => signIn("github")}
           />
         </div>

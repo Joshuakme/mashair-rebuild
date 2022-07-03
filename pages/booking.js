@@ -16,8 +16,10 @@ function Booking() {
 
   useEffect(() => {
     if (!session || status === "unauthenticated") {
+      router.push("/login");
+    } else {
       if (session.role !== "customer") {
-        router.push("/");
+        router.push("/login");
       }
     }
   }, [session]);
