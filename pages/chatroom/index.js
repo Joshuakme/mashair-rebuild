@@ -1,4 +1,5 @@
 // Import Next & React Components
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 // Import Components
@@ -186,6 +187,9 @@ function Chatroom(props) {
 
   return (
     <main className={classes.chatroomContainer}>
+      <Head>
+        <title>Chatroom</title>
+      </Head>
       <UserList
         chatHistory={chatHistory}
         activeChat={activeChat}

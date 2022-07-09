@@ -1,4 +1,5 @@
 // Import Next & React Components
+import Head from "next/head";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 // Import Components
@@ -26,6 +27,9 @@ function Booking() {
 
   return (
     <main className={classes.bookingContainer}>
+      <Head>
+        <title>Booking</title>
+      </Head>
       <BookingHistory />
       <BookingForm />
     </main>

@@ -1,3 +1,5 @@
+// Import Next & React Components
+import Head from "next/head";
 import React, { useState } from "react";
 // Import Third Party Packages
 import { useSession } from "next-auth/react";
@@ -37,6 +39,9 @@ function User() {
 
   return (
     <main className={classes.container}>
+      <Head>
+        <title>Profile</title>
+      </Head>
       <ProfileHeader />
       <ProfileBody user={session.user} />
     </main>
