@@ -34,13 +34,13 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  font-size: 2.3rem;
-  font-weight: 600;
-  cursor: pointer;
+  font-size: 3.5em;
+  /* width: 3rem;
+  height: 3rem; */
   margin-top: auto;
   margin-bottom: auto;
-  padding: 0.15rem 0.4rem;
-  width: 2.2rem;
+  color: var(--text-primary);
+  cursor: pointer;
   z-index: 3;
 
   -webkit-transition: 0.05s ease-in-out;
@@ -55,11 +55,11 @@
 }
 
 .btnContainer #btnLeft {
-  left: 1vw;
+  left: 2%;
 }
 
 .btnContainer #btnRight {
-  right: 1vw;
+  right: 2%;
 }
 
 /* Indicators Section */

@@ -1,13 +1,9 @@
 // Import Next Components
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-// Import Third Party Packages
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-
+// Import MUI Icons
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 // Import Styles
 import classes from "./image-slider.module.css";
 
@@ -172,14 +168,12 @@ function ImageSlider() {
         onMouseEnter={pauseSlider}
         onMouseLeave={startSlider}
       >
-        <FontAwesomeIcon
-          icon={faChevronLeft}
+        <ChevronLeftIcon
           className={classes.sliderBtn}
           id={classes.btnLeft}
           onClick={sliderAnimateLeftHandler}
         />
-        <FontAwesomeIcon
-          icon={faChevronRight}
+        <ChevronRightIcon
           className={classes.sliderBtn}
           id={classes.btnRight}
           onClick={sliderAnimateRightHandler}

@@ -45,7 +45,7 @@ function ContentContainer({ messages, type }) {
               message={message}
               self={self}
               type={type}
-              key={message.id}
+              key={index}
             />
           </div>
         ))}

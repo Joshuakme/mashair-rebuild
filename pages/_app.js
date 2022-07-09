@@ -48,10 +48,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-// export async function getServerSideProps() {
-//   return {
-//     props: {},
-//   };
-// }
-
 export default MyApp;

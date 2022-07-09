@@ -16,9 +16,9 @@ function Booking() {
 
   useEffect(() => {
     if (!session || status === "unauthenticated") {
-      router.push("/login");
+      router.push("/");
     } else {
-      if (session.role !== "customer") {
+      if (session.user.role !== "customer") {
         router.push("/login");
       }
     }

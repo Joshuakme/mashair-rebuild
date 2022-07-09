@@ -1,11 +1,8 @@
 import React, { useRef } from "react";
 // Improt Third Party Packages
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGrin,
-  faEllipsis,
-  faPaperPlane,
-} from "@fortawesome/free-solid-svg-icons";
+import TagFacesIcon from "@mui/icons-material/TagFaces";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import SendIcon from "@mui/icons-material/Send";
 // Import Styles
 import classes from "./msginput.module.css";
 
@@ -60,10 +57,10 @@ function MsgInput() {
               className={classes.iconContainer}
               style={{ marginRight: "0.5rem" }}
             >
-              <FontAwesomeIcon icon={faGrin} />
+              <TagFacesIcon />
             </div>
             <div className={classes.iconContainer}>
-              <FontAwesomeIcon icon={faEllipsis} />
+              <MoreHorizIcon />
             </div>
           </div>
 
@@ -84,7 +81,7 @@ function MsgInput() {
           <div className={classes.divRightContainer}>
             {" "}
             <div className={classes.iconContainer}>
-              <FontAwesomeIcon icon={faPaperPlane} />
+              <SendIcon />
             </div>
           </div>
         </div>

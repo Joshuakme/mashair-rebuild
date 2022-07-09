@@ -44,8 +44,6 @@ export default NextAuth({
           client.close();
         }
 
-        console.log(user);
-
         const isValid = await verifyPassword(password, user.password);
 
         if (!isValid) {
@@ -55,9 +53,18 @@ export default NextAuth({
         }
 
         client.close();
+
+        console.log(user);
         return {
-          id: user.id,
+          id: user._id,
+          name: user.name,
           role: user.type,
+          email: user.email,
+          address: user.address,
+          isPaymentVerified: user.isPaymentVerified,
+          serviceId: user.serviceId,
+          img: user.imageUrl,
+          description: user.description,
         };
       },
     }),
@@ -82,14 +89,26 @@ export default NextAuth({
   callbacks: {
     async jwt({ token, user, account, profile }) {
       if (user) {
-        token.userId = user.id;
-        token.userRole = user.role;
+        token.user = {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+          address: user.address,
+          isPaymentVerified: user.isPaymentVerified,
+          image: user.imageUrl,
+          description: user.description,
+        };
+        if (account.provider !== "credentials") {
+          token.picture = profile.image;
+        }
+        token.accessToken = account.access_token;
       }
       return token;
     },
     async session({ session, token, user }) {
-      session.user.id = token.userId;
-      session.user.role = token.userRole;
+      session.user.accessToken = token.accessToken;
+      session.user = token.user;
       return session;
     },
   },
@@ -97,4 +116,5 @@ export default NextAuth({
     signIn: "/login",
     signOut: "/signout",
   },
+  secret: "qudhioqhdwq7ylioholoh",
 });

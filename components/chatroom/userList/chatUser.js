@@ -2,8 +2,7 @@
 import Image from "next/image";
 import React from "react";
 // Import Third Party Packages
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import PersonIcon from "@mui/icons-material/Person";
 // Import Styles
 import classes from "./chatUser.module.css";
 
@@ -13,7 +12,7 @@ function ChatUser(props) {
   let imgPath;
 
   if (!thumbnail_img || thumbnail_img === "") {
-    imgPath = `/images/user/user-skeleton.png`;
+    imgPath = `/images/users/user-skeleton.png`;
   } else {
     imgPath = `/images/chatroom/${id}/${thumbnail_img}`;
   }
@@ -34,7 +33,11 @@ function ChatUser(props) {
       id={id}
     >
       <div className={classes.imgContainer}>
-        <Image src={imgPath} width={100} height={100} />
+        {thumbnail_img ? (
+          <Image src={imgPath} width={100} height={100} />
+        ) : (
+          <PersonIcon />
+        )}
       </div>
       <div className={classes.summaryContainer}>
         <h2>{title}</h2>
