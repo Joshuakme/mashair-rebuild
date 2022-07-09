@@ -17,14 +17,11 @@ function User() {
   //   Variables
   let userRole;
 
-  console.log(session);
-
   if (!session && status === "loading") {
-    <p>Loading...</p>;
+    return <p>Loading...</p>;
   }
 
   if (!session && status !== "authenticated") {
-    return;
     router.push("/");
   }
 
