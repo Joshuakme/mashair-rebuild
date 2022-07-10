@@ -14,7 +14,6 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.6",
     "@mui/x-date-pickers": "^5.0.0-alpha.7",
-    "@types/date-fns": "^2.6.0",
     "bcryptjs": "^2.4.3",
     "hamburger-react": "^2.5.0",
     "mongodb": "^4.7.0",
