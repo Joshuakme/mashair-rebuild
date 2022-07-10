@@ -57,7 +57,12 @@ function Header() {
           <Link href="/user">
             <a>
               <div className={classes.profileThumbnail}>
-                <Image src={profileThumbPath} width={48} height={48} />
+                <Image
+                  src={profileThumbPath}
+                  width={48}
+                  height={48}
+                  alt="Profile Thumbnail"
+                />
               </div>
             </a>
           </Link>

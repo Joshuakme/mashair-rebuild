@@ -14,6 +14,14 @@ function ImageSlider() {
   const [counter, setCounter] = useState(0);
   const [slideInterval, setSlideInterval] = useState();
 
+  useEffect(() => {
+    startSlider();
+
+    return () => {
+      clearInterval(slideInterval);
+    };
+  }, [slideInterval]);
+
   // Functions
   function sliderAnimateLeftHandler() {
     let translatePercent;
@@ -123,14 +131,6 @@ function ImageSlider() {
     clearInterval(slideInterval);
   }
 
-  useEffect(() => {
-    startSlider();
-
-    return () => {
-      clearInterval(slideInterval);
-    };
-  }, []);
-
   return (
     <div className={classes.imageSliderContainer}>
       <div
@@ -149,6 +149,7 @@ function ImageSlider() {
               priority="true"
               className={classes.sliderImg}
               id={`img-${index}`}
+              alt=""
               key={index}
             />
           ) : (
@@ -158,6 +159,7 @@ function ImageSlider() {
               height={450}
               layout="responsive"
               className={classes.sliderImg}
+              alt=""
               key={index}
             />
           );

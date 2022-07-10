@@ -17,7 +17,7 @@ function Login() {
     if (session && status === "authenticated") {
       router.push("/");
     }
-  }, [session]);
+  }, [session, router, status]);
 
   return (
     <section className={classes.loginSection}>

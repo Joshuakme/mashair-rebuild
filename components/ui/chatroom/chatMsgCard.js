@@ -11,6 +11,12 @@ function ChatMessageCard(props) {
   const formattedMinutes = addLeadingZeros(msgDate.getMinutes(), 2);
   const displayTime = `${formattedHours}:${formattedMinutes}`;
 
+  useEffect(() => {
+    if (message.username === self.username) {
+      msgCardContainer.current.dataset["self"] = "true";
+    }
+  }, [message.username, self.username]);
+
   //   Functions
   function addLeadingZeros(num, totalLength) {
     return num > 0 && num < 10 ? String(num).padStart(totalLength, "0") : num;
@@ -19,12 +25,6 @@ function ChatMessageCard(props) {
   if (!message) {
     return;
   }
-
-  useEffect(() => {
-    if (message.username === self.username) {
-      msgCardContainer.current.dataset["self"] = "true";
-    }
-  }, []);
 
   return (
     <div

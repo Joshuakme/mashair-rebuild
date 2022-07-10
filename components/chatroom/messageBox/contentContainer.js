@@ -40,13 +40,8 @@ function ContentContainer({ messages, type }) {
     <div className={classes.chatContentContainer}>
       <div className={classes.messagesDisplayContainer}>
         {messages.map((message, index) => (
-          <div className={classes.message}>
-            <ChatMessageCard
-              message={message}
-              self={self}
-              type={type}
-              key={index}
-            />
+          <div className={classes.message} key={index}>
+            <ChatMessageCard message={message} self={self} type={type} />
           </div>
         ))}
       </div>

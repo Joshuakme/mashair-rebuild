@@ -14,11 +14,12 @@ import path from "path";
 import classes from "../../styles/chatroom.module.css";
 
 function Chatroom(props) {
+  const { chats } = props;
+
   const { data: session, status } = useState();
   const router = useRouter();
   const [chatHistory, setChatHistory] = useState();
   const [activeChat, setActiveChat] = useState();
-  const { chats } = props;
 
   const object = {
     chatId0: {
@@ -152,6 +153,10 @@ function Chatroom(props) {
     },
   };
 
+  useEffect(() => {
+    fetchChatHistory();
+  }, [props.chats]);
+
   // if (!session || status === "unauthenticated") {
   //   router.push("/login");
   // }
@@ -180,10 +185,6 @@ function Chatroom(props) {
     } */
     }
   }
-
-  useEffect(() => {
-    fetchChatHistory();
-  }, [props.chats]);
 
   return (
     <main className={classes.chatroomContainer}>

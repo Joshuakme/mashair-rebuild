@@ -23,7 +23,7 @@ function Booking() {
         router.push("/login");
       }
     }
-  }, [session]);
+  }, [router, session, status]);
 
   return (
     <main className={classes.bookingContainer}>

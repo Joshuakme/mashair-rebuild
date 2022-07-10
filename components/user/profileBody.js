@@ -10,6 +10,10 @@ function ProfileBody({ user }) {
   const [isEditMode, setIsEditMode] = useState(false);
   const fullname = `${name.first} ${name.last}`;
 
+  useEffect(() => {
+    // setDefaultValue();
+  }, []);
+
   if (!user) {
     return;
   }
@@ -26,15 +30,16 @@ function ProfileBody({ user }) {
     setIsEditMode((prevMode) => !prevMode);
   }
 
-  useEffect(() => {
-    // setDefaultValue();
-  }, []);
-
   return (
     <section className={classes.profileBodyContainer}>
       <form>
         <div className={classes.profileImage}>
-          <Image src={"/mashair.svg"} height={80} width={80} />
+          <Image
+            src={"/mashair.svg"}
+            height={80}
+            width={80}
+            alt="Profile Image"
+          />
         </div>
         <div className={classes.infoNameRow}>
           <div className={classes.nameInput}>

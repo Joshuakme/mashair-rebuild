@@ -34,7 +34,7 @@ function ChatUser(props) {
     >
       <div className={classes.imgContainer}>
         {thumbnail_img ? (
-          <Image src={imgPath} width={100} height={100} />
+          <Image src={imgPath} width={100} height={100} alt="" />
         ) : (
           <PersonIcon />
         )}

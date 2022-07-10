@@ -13,6 +13,10 @@ function MessageBox(props) {
 
   const list = Object.keys(object).map((key) => object[key]);
 
+  useEffect(() => {
+    getUserListContainerWidth();
+  }, [activeChat]);
+
   if (typeof activeChat !== undefined || activeChat !== null || !list) {
     filteredChat = list.filter((chat) => {
       return parseInt(chat.id.toString().slice(6)) === activeChat;
@@ -46,16 +50,12 @@ function MessageBox(props) {
     );
   }
 
-  useEffect(() => {
-    getUserListContainerWidth();
-  }, [activeChat]);
-
   if (filteredChat.length > 0) {
     return (
       <section className={classes.messageBoxContainer} ref={messageBox}>
         <div className={classes.header}>
           <div className={classes.imgContainer}>
-            <Image src={imgPath} width={100} height={100} />
+            <Image src={imgPath} width={100} height={100} alt="profile" />
           </div>
           <div className={classes.userStatus}>
             <h2>{filteredChat[0].title}</h2>
