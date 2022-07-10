@@ -6,6 +6,7 @@ const nextConfig = {
     mongodb_password: "mashair_rebuild_password",
     mongodb_dbname: "mashair_rebuild",
   },
+  future: { webpack5: true },
 };
 
 module.exports = nextConfig;
