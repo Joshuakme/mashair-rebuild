@@ -4,7 +4,7 @@ import TagFacesIcon from "@mui/icons-material/TagFaces";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import SendIcon from "@mui/icons-material/Send";
 // Import Styles
-import classes from "./msginput.module.css";
+import classes from "./msgInput.module.css";
 
 function MsgInput() {
   const inputMsgTxta = useRef();
