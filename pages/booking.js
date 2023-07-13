@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 // Import Components
 import BookingForm from "../components/booking/bookingForm/bookingForm";
-import BookingHistory from "../components/booking/bookinghistory/bookinghistory";
+import BookingHistory from "../components/booking/bookingHistory/bookingHistory";
 // Import Third Party Packages
 import { useSession } from "next-auth/react";
 // Import Styles
